@@ -17,6 +17,8 @@ Implement an interface and decorate your class and properties with some addition
 3. Readonly for listview.
 4. Hide it in the left side menu. 
 5. Added Query featrue.
+![](query.png)
+
 6. Default ordering with descing or ascing.
 7. Datetime format in the listview using UIOMaticField attribute.
 
