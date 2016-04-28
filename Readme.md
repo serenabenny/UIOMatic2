@@ -1,4 +1,4 @@
-# UI-O-Matic #
+# UI-O-Matic 2 #
 
 [![Build status](https://ci.appveyor.com/api/projects/status/94932v6vx6mp2g57?svg=true)](https://ci.appveyor.com/project/TimGeyssens/uiomatic)
 [![Documentation Status](https://readthedocs.org/projects/uiomatic/badge/?version=latest)](http://uiomatic.readthedocs.org/en/latest/)
@@ -15,53 +15,192 @@ Implement an interface and decorate your class and properties with some addition
 ## Example ##
 If you have the following db table
 
-    CREATE TABLE [People] (
-      [Id] int IDENTITY (1,1) NOT NULL
-    , [FirstName] nvarchar(255) NOT NULL
-    , [LastName] nvarchar(255) NOT NULL
-    , [Picture] nvarchar(255) NOT NULL
+    CREATE TABLE [Redemption] (
+      [Uid] uniqueidentifier DEFAULT (newid()) NOT NULL
+    , [ProductID] nvarchar(100) NULL
+    , [StartDateTime] datetime NOT NULL
+    , [EndDateTime] datetime NOT NULL
+    , [RedemptionPoint] int NOT NULL
+    , [Quantity] int NOT NULL
+    , [CreatedDateTime] datetime NOT NULL
+    , [CreatedBy] int NOT NULL
+    , [UpdatedDateTime] datetime NOT NULL
+    , [UpdatedBy] int NOT NULL
+    , [Status] nvarchar(50) NULL
     );
+    GO
+    ALTER TABLE [Redemption] ADD CONSTRAINT [PK_Redemption] PRIMARY KEY ([Uid]);
+    GO
+    CREATE TABLE [RedemptionRecord] (
+      [Uid] uniqueidentifier DEFAULT (newid()) NOT NULL
+    , [RedemptionID] uniqueidentifier NOT NULL
+    , [ConfirmedDateTime] datetime NULL
+    , [CollectedDateTime] datetime NULL
+    , [CreatedDateTime] datetime DEFAULT (getdate()) NOT NULL
+    , [CreatedBy] int NOT NULL
+    , [UpdatedDateTime] datetime DEFAULT (getdate()) NOT NULL
+    , [UpdatedBy] int NOT NULL
+    , [Status] nvarchar(50) NOT NULL
+    , [CollectionExpiryDateTime] datetime NULL
+    );
+    GO
+    ALTER TABLE [RedemptionRecord] ADD CONSTRAINT [PK_RedemptionRecord] PRIMARY KEY ([Uid]);
+    GO
+
 
 This class
 
-    [UIOMaticAttribute("People","icon-users","icon-user")]
-    [TableName("People")]
-    public class Person: IUIOMaticModel
+    [UIOMaticAttribute("Redemption", "icon-users", "icon-user",
+        RenderType = UIOMaticRenderType.List, IsCanExport = true, ReadOnly = false)]
+    [TableName("Redemption")]
+    [PrimaryKey("Uid", autoIncrement = false)]
+    [ExplicitColumns]
+    public class Redemption : IUIOMaticModel
     {
-        public Person() { }
-
+        public const string TableName = "Redemption";
         [UIOMaticIgnoreField]
-        [PrimaryKeyColumn(AutoIncrement = true)]
-        public int Id { get; set; }
+        [UIOMaticField("Uid", "", IsCanEdit = false)]
+        [Column]
+        public Guid Uid { get; set; }
+        [UIOMaticNameField]
+        [Column]
+        public string ProductID { get; set; }
+        [UIOMaticField("Start Date", "Enter the Start Date", IsCanEdit = false)]
+        [UIOMaticFilterField(DefaultValue = "monthlyfirstday", DefaultToValue = "monthlylastday")]
+        [UIOMaticSortOrder(1)]
+        [Column]
+        public DateTime StartDateTime { get; set; }
+        [UIOMaticField("End Date", "Enter the End Date", IsCanEdit = false,DateFormat ="yyyy MM dd")]
+        [Column]
+        public DateTime EndDateTime { get; set; }
+        [UIOMaticField("Redemption Points", "", IsCanEdit = false)]
+        [UIOMaticFilterField]
+        [Column]
+        public int RedemptionPoint { get; set; }
+        [UIOMaticField("Quantity", "", IsCanEdit = false)]
+        [Column]
+        public int Quantity { get; set; }
 
-        [UIOMaticField("First name","Enter the persons first name")]
-        public string FirstName { get; set; }
+        [UIOMaticField("CreatedDateTime", "", View = "datetime", IsCanEdit = false)]
+        [UIOMaticIgnoreField]
+        [Column]
+        [UIOMaticSortOrder(2, true)]
+        public DateTime CreatedDateTime { get; set; }
+        //[UIOMaticField("CreatedBy", "", IsCanEdit = false)]
+        [UIOMaticIgnoreField]
+        [Column]
+        public int CreatedBy { get; set; }
+        [UIOMaticField("UpdatedDateTime", "", View = "datetime", IsCanEdit = false)]
+        [UIOMaticIgnoreField]
+        [Column]
+        public DateTime UpdatedDateTime { get; set; }
+        //[UIOMaticField("UpdatedBy", "", IsCanEdit = false)]
+        [UIOMaticIgnoreField]
+        [Column]
+        public int UpdatedBy { get; set; }
 
-        [UIOMaticField("Last name", "Enter the persons last name")]
-        public string LastName { get; set; }
-
-        [UIOMaticField("Picture", "Select a picture", View = "file")]
-        public string Picture { get; set; }
+        [Ignore]
+        [UIOMaticIgnoreFromListView]
+        [UIOMaticField("Winner", "", View = "list",
+            Config = "{'typeName': 'Example.Model.RedemptionRecord, Example', 'foreignKeyColumn' : 'RedemptionID', 'canEdit' : true}")]
+        public IEnumerable<RedemptionRecord> Winner { get; set; }
 
         public override string ToString()
         {
-            return FirstName + " " + LastName;
+            return ProductID;
         }
 
         public IEnumerable<Exception> Validate()
         {
             var exs = new List<Exception>();
 
-            if(string.IsNullOrEmpty(FirstName))
-                exs.Add(new Exception("Please provide a value for first name"));
+            if (string.IsNullOrEmpty(ProductID))
+                exs.Add(new Exception("Please provide a value for Product Code"));
 
-            if (string.IsNullOrEmpty(LastName))
-                exs.Add(new Exception("Please provide a value for last name"));
-
+            if (Quantity < 0)
+                exs.Add(new Exception("Please provide a value for Quantity"));
 
             return exs;
         }
-    }`
+
+
+        public void SetDefaultValue()
+        {
+            if (CreatedDateTime == default(DateTime))
+            {
+                CreatedDateTime = DateTime.Now;
+                CreatedBy = 0;
+            }
+            UpdatedDateTime = DateTime.Now;
+            UpdatedBy = 0;
+        }
+    }
+    
+     [UIOMaticAttribute("RedemptionRecord", "icon-users", "icon-user", RenderType = UIOMaticRenderType.List, ShowInTree = false)]
+     [TableName("RedemptionRecord")]
+     [PrimaryKey("Uid", autoIncrement = false)]
+     [ExplicitColumns]
+     public partial class RedemptionRecord : IUIOMaticModel
+     {
+         public const string TableName = "RedemptionRecord";
+ 
+         [UIOMaticIgnoreField]
+         [UIOMaticIgnoreFromListView]
+         [Column]
+         public Guid Uid { get; set; }
+         [UIOMaticIgnoreField]
+         [UIOMaticIgnoreFromListView]
+         [Column]
+         public Guid RedemptionID { get; set; }
+ 
+         [Column("CreatedBy")]
+         public int Winner { get; set; }
+         [Column]
+         [UIOMaticField("Confirmed DateTime", "", View = "datetime", IsCanEdit = false)]
+         public DateTime? ConfirmedDateTime { get; set; }
+         [Column]
+         public DateTime? CollectedDateTime { get; set; }
+         [Column]
+         [UIOMaticField("Collection Expiry DateTime", "", View = "datetime", IsCanEdit = false)]
+         public DateTime? CollectionExpiryDateTime { get; set; }
+         [UIOMaticIgnoreField]
+         [UIOMaticIgnoreFromListView]
+         [Column]
+         public DateTime CreatedDateTime { get; set; }
+ 
+         [UIOMaticIgnoreField]
+         [UIOMaticIgnoreFromListView]
+         [Column]
+         public DateTime UpdatedDateTime { get; set; }
+         [UIOMaticIgnoreField]
+         [UIOMaticIgnoreFromListView]
+         [Column]
+         public int UpdatedBy { get; set; }
+         
+         public override string ToString()
+         {
+             return Winner.ToString();
+         }
+ 
+         public IEnumerable<Exception> Validate()
+         {
+             var exs = new List<Exception>();
+             
+             return exs;
+         }
+ 
+ 
+         public void SetDefaultValue()
+         {
+             if (CreatedDateTime == default(DateTime))
+             {
+                 CreatedDateTime = DateTime.Now;
+                 Winner = 0;
+             }
+             UpdatedDateTime = DateTime.Now;
+             UpdatedBy = 0;
+         } 
+     }   `
 
 Will generate the following UI
 

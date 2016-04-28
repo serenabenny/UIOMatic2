@@ -307,7 +307,6 @@
     <Content Include="App_Plugins\UIOMatic\UIOMatic.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Grid\Config\FanoeConfig.txt" />
