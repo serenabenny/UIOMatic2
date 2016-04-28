@@ -11,6 +11,14 @@
 ![](logo.png)
 
 Implement an interface and decorate your class and properties with some additional attributes.
+## What's new in UI-O-Matic 2 ##
+1. Format column header to match UIOMaticField name.
+2. Added export to CSV file.
+3. Readonly for listview.
+4. Hide it in the left side menu. 
+5. Added Query featrue.
+6. Default ordering with descing or ascing.
+7. Datetime format in the listview using UIOMaticField attribute.
 
 ## Example ##
 If you have the following db table
