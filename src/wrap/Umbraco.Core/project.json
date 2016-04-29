@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../packages/UmbracoCms.Core.7.4.3/lib/Umbraco.Core.dll"
+      },
+      "dependencies": {
+        "interfaces": "1.0.0-*",
+        "log4net": "1.0.0-*",
+        "System.Data.SqlServerCe": "1.0.0-*"
+      }
+    }
+  }
+}

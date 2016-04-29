@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0-*",
+  "description": "UIOMatic2 Class Library",
+  "authors": [ "Administrator" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      },
+      "dependencies": {
+        "businesslogic": "1.0.0-*",
+        "ClientDependency.Core": "1.0.0-*",
+        "cms": "1.0.0-*",
+        "controls": "1.0.0-*",
+        "interfaces": "1.0.0-*",
+        "log4net": "1.0.0-*",
+        "System.Net.Http.Formatting": "1.0.0-*",
+        "System.Web.Http": "1.0.0-*",
+        "System.Web.Mvc": "1.0.0-*",
+        "Umbraco.Core": "1.0.0-*"
+      }
+    },
+    "dotnet5.4": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23516",
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Threading": "4.0.11-beta-23516"
+      }
+    }
+  }
+}

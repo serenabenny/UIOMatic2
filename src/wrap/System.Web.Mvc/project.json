@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../packages/Microsoft.AspNet.Mvc.5.2.3/lib/net45/System.Web.Mvc.dll"
+      }
+    }
+  }
+}

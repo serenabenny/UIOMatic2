@@ -1,0 +1,89 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, April 26, 2016 5:42:54 PM
+   Source : C:\projects\Github\UIOMatic2\Example\bin\
+     Dest : C:\projects\Github\UIOMatic2\Example\App_Data\NuGetBackup\20160426-174254\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                  59	C:\projects\Github\UIOMatic2\Example\bin\
+	    New File  		  144384	AutoMapper.dll  0%   90%  100%  
+	    New File  		   28160	AutoMapper.Net4.dll  0%  100%  
+	    New File  		  118784	businesslogic.dll  0%  100%  
+	    New File  		  146432	ClientDependency.Core.dll  0%   89%  100%  
+	    New File  		   23552	ClientDependency.Core.Mvc.dll  0%  100%  
+	    New File  		  507904	cms.dll  0%   25%   51%   77%  100%  
+	    New File  		   51712	controls.dll  0%  100%  
+	    New File  		  122880	CookComputing.XmlRpcV2.dll  0%  100%  
+	    New File  		   99840	Examine.dll  0%  100%  
+	    New File  		  134656	HtmlAgilityPack.dll  0%   97%  100%  
+	    New File  		  200704	ICSharpCode.SharpZipLib.dll  0%   65%  100%  
+	    New File  		  179200	ImageProcessor.dll  0%   73%  100%  
+	    New File  		  114176	ImageProcessor.Web.dll  0%  100%  
+	    New File  		   24576	interfaces.dll  0%  100%  
+	    New File  		  258048	log4net.dll  0%   50%  100%  
+	    New File  		  786432	Lucene.Net.dll  0%   33%   66%  100%  
+	    New File  		   54784	MarkdownSharp.dll  0%  100%  
+	    New File  		   11264	Microsoft.ApplicationBlocks.Data.dll  0%  100%  
+	    New File  		  171672	Microsoft.AspNet.Identity.Core.dll  0%   76%  100%  
+	    New File  		   54944	Microsoft.AspNet.Identity.Owin.dll  0%  100%  
+	    New File  		   3.8 m	Microsoft.CodeAnalysis.CSharp.dll  0%   13%   26%   39%   52%   65%   78%   91%  100%  
+	    New File  		   1.6 m	Microsoft.CodeAnalysis.dll  0%   15%   30%   45%   60%   76%   91%  100%  
+	    New File  		   29344	Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll  0%  100%  
+	    New File  		  101032	Microsoft.Owin.dll  0%  100%  
+	    New File  		  133288	Microsoft.Owin.Host.SystemWeb.dll  0%   98%  100%  
+	    New File  		   36520	Microsoft.Owin.Security.Cookies.dll  0%  100%  
+	    New File  		   53416	Microsoft.Owin.Security.dll  0%  100%  
+	    New File  		   77488	Microsoft.Owin.Security.OAuth.dll  0%  100%  
+	    New File  		   45416	Microsoft.Web.Infrastructure.dll  0%  100%  
+	    New File  		  396288	MiniProfiler.dll  0%   33%   66%   99%  100%  
+	    New File  		  457728	MySql.Data.dll  0%   28%   57%   85%  100%  
+	    New File  		  513536	Newtonsoft.Json.dll  0%   25%   51%   76%  100%  
+	    New File  		    4608	Owin.dll  0%  100%  
+	    New File  		   10240	Semver.dll  0%  100%  
+	    New File  		   19968	SQLCE4Umbraco.dll  0%  100%  
+	    New File  		  204544	System.Collections.Immutable.dll  0%   64%  100%  
+	    New File  		  470696	System.Data.SqlServerCe.dll  0%   27%   55%   83%  100%  
+	    New File  		  240808	System.Data.SqlServerCe.Entity.dll  0%   54%  100%  
+	    New File  		  185544	System.Net.Http.Formatting.dll  0%   70%  100%  
+	    New File  		  262896	System.Reflection.Metadata.dll  0%   49%   99%  100%  
+	    New File  		  139976	System.Web.Helpers.dll  0%   93%  100%  
+	    New File  		  471240	System.Web.Http.dll  0%   27%   55%   83%  100%  
+	    New File  		   82120	System.Web.Http.WebHost.dll  0%  100%  
+	    New File  		  566472	System.Web.Mvc.dll  0%   46%   92%  100%  
+	    New File  		  272072	System.Web.Razor.dll  0%   48%   96%  100%  
+	    New File  		   41672	System.Web.WebPages.Deployment.dll  0%  100%  
+	    New File  		  211656	System.Web.WebPages.dll  0%   61%  100%  
+	    New File  		   39624	System.Web.WebPages.Razor.dll  0%  100%  
+	    New File  		  192512	TidyNet.dll  0%   68%  100%  
+	    New File  		   2.3 m	Umbraco.Core.dll  0%   20%   41%   62%   83%  100%  
+	    New File  		   38400	umbraco.DataLayer.dll  0%  100%  
+	    New File  		   2.0 m	umbraco.dll  0%   24%   48%   73%   97%  100%  
+	    New File  		  372736	umbraco.editorControls.dll  0%   35%   70%  100%  
+	    New File  		  131584	umbraco.MacroEngines.dll  0%   99%  100%  
+	    New File  		   95744	Umbraco.ModelsBuilder.dll  0%  100%  
+	    New File  		   38400	umbraco.providers.dll  0%  100%  
+	    New File  		   57344	Umbraco.Web.UI.dll  0%  100%  
+	    New File  		   58880	UmbracoExamine.dll  0%  100%  
+	    New File  		   22528	UrlRewritingNet.UrlRewriter.dll  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         0         0         0         0
+   Files :        59        59         0         0         0         0
+   Bytes :   18.76 m   18.76 m         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :            44122852 Bytes/sec.
+   Speed :            2524.729 MegaBytes/min.
+   Ended : Tuesday, April 26, 2016 5:42:54 PM
+

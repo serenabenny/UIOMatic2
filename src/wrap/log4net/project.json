@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../packages/UmbracoCms.Core.7.4.3/lib/log4net.dll"
+      }
+    }
+  }
+}

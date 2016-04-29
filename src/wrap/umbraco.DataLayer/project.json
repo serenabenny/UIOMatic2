@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../packages/UmbracoCms.Core.7.4.3/lib/umbraco.DataLayer.dll"
+      },
+      "dependencies": {
+        "Microsoft.ApplicationBlocks.Data": "1.0.0-*",
+        "Umbraco.Core": "1.0.0-*"
+      }
+    }
+  }
+}

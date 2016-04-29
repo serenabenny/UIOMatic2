@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../packages/UmbracoCms.Core.7.4.3/lib/controls.dll"
+      },
+      "dependencies": {
+        "businesslogic": "1.0.0-*",
+        "cms": "1.0.0-*",
+        "Umbraco.Core": "1.0.0-*"
+      }
+    }
+  }
+}
