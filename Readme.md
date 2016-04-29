@@ -1,35 +1,33 @@
 # UI-O-Matic 2 #
 
-[![Build status](https://ci.appveyor.com/api/projects/status/94932v6vx6mp2g57?svg=true)](https://ci.appveyor.com/project/TimGeyssens/uiomatic)
-[![Documentation Status](https://readthedocs.org/projects/uiomatic/badge/?version=latest)](http://uiomatic.readthedocs.org/en/latest/)
-[![NuGet release](https://img.shields.io/nuget/v/Nibble.Umbraco.UIOMatic.svg)](https://www.nuget.org/packages/Nibble.Umbraco.UIOMatic)
-[![Our Umbraco project page](https://img.shields.io/badge/our-umbraco-orange.svg)](https://our.umbraco.org/projects/developer-tools/ui-o-matic/)
-[![Chat on Gitter](https://img.shields.io/badge/gitter-join_chat-green.svg)](https://gitter.im/TimGeyssens/UIOMatic)
-
 **Auto generate an integrated crud UI in Umbraco for a db table based on a [petapoco ](http://www.toptensoftware.com/petapoco/)poco**
 
 ![](logo.png)
 
 Implement an interface and decorate your class and properties with some additional attributes.
 ## What's new in UI-O-Matic 2 ##
-* Format column header to match UIOMaticField name.
-* Added export to CSV file.
-3. Readonly for listview.
-4. Hide it in the left side menu. 
-5. Added Query featrue.
+##### 1.Format column header to match UIOMaticField name.
+##### 2.Export to CSV file.
+##### 3.Readonly for listview.
 
+    [UIOMaticAttribute("Redemption", "icon-users", "icon-user",RenderType = UIOMaticRenderType.List, IsCanExport = true, ReadOnly = false)]
+    
+##### 4.Hide it in the left side menu. 
+`[UIOMaticAttribute("RedemptionRecord", "icon-users", "icon-user", RenderType = UIOMaticRenderType.List, ShowInTree = false)]`
+##### 5.Added Query featrue.
 
-    [UIOMaticField("Start Date", "Enter the Start Date", IsCanEdit = false)]
-    [UIOMaticFilterField(DefaultValue = "monthlyfirstday", DefaultToValue = "monthlylastday")]
-    [UIOMaticSortOrder(1)]
-    [Column]
-    public DateTime StartDateTime { get; set; }
+`[UIOMaticFilterField(DefaultValue = "monthlyfirstday", DefaultToValue = "monthlylastday")]`
     
 ![](query.png)    
+##### 6.Default ordering with descing or ascing.
 
-6. Default ordering with descing or ascing.
-7. Datetime format in the listview using UIOMaticField attribute.
+`[UIOMaticSortOrder(2, true)]`
 
+##### 7.Datetime format in the listview using UIOMaticField attribute.
+`[UIOMaticField("End Date", "Enter the End Date", IsCanEdit = false,DateFormat ="yyyy MM dd")]`
+
+##### 8.Not allow change the value once the record created.
+    [UIOMaticField("Uid", "", IsCanEdit = false)]
 ## Example ##
 If you have the following db table
 
@@ -153,7 +151,6 @@ This class
             UpdatedBy = 0;
         }
     }
-    
      [UIOMaticAttribute("RedemptionRecord", "icon-users", "icon-user", RenderType = UIOMaticRenderType.List, ShowInTree = false)]
      [TableName("RedemptionRecord")]
      [PrimaryKey("Uid", autoIncrement = false)]
@@ -233,6 +230,6 @@ For the quick intro check [http://slides.com/timgeyssens/uiomatic#/](http://slid
 
 ### Test site ###
 Backoffice credentials: 
-- tim@nibble.be / password
+- bennylam@hotmail.com / P@ssw0rd
 
 
