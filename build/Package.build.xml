@@ -50,7 +50,7 @@
 		<PackageDir>$(RootDir)\..\Releases</PackageDir>
 		<BuildNuGetDir>$(MSBuildProjectDirectory)\_nuget</BuildNuGetDir>
 		<CoreProjectDir>$(RootDir)\..\src\UIOMatic\</CoreProjectDir>
-		<ProjectDir>$(RootDir)\..\src\</ProjectDir>
+		<UmbracoProjectDir>$(RootDir)\..\src\Example\</UmbracoProjectDir>
 	</PropertyGroup>
 
 	<!-- TARGETS -->
@@ -79,7 +79,8 @@
 
 	<!-- COMPILE -->
 	<Target Name="Compile" DependsOnTargets="UpdateAssemblyInfo">
-		<MSBuild Projects="$(ProjectDir)\UIOMatic2.csproj" />
+		<MSBuild Projects="$(UmbracoProjectDir)\Example.csproj" />
+		<MSBuild Projects="$(CoreProjectDir)\UIOMatic.csproj" />
 	</Target>
 
   <!-- PREPARE FILES -->
