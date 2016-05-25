@@ -38,8 +38,8 @@
   
 
 	<PropertyGroup>
-		<VersionMajor>1</VersionMajor>
-		<VersionMinor>6</VersionMinor>
+		<VersionMajor>2</VersionMajor>
+		<VersionMinor>0</VersionMinor>
 		<VersionPatch>0</VersionPatch>
 		<VersionSuffix></VersionSuffix>
 		<UmbracoVersion>7.3.0</UmbracoVersion>
@@ -50,6 +50,7 @@
 		<PackageDir>$(RootDir)\..\Releases</PackageDir>
 		<BuildNuGetDir>$(MSBuildProjectDirectory)\_nuget</BuildNuGetDir>
 		<CoreProjectDir>$(RootDir)\..\src\UIOMatic\</CoreProjectDir>
+		<UmbracoProjectDir>$(RootDir)\..\src\Example\</UmbracoProjectDir>
 	</PropertyGroup>
 
 	<!-- TARGETS -->
@@ -78,6 +79,7 @@
 
 	<!-- COMPILE -->
 	<Target Name="Compile" DependsOnTargets="UpdateAssemblyInfo">
+		<MSBuild Projects="$(UmbracoProjectDir)\Example.csproj" />
 		<MSBuild Projects="$(CoreProjectDir)\UIOMatic.csproj" />
 	</Target>
 
