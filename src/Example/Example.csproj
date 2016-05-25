@@ -417,7 +417,7 @@
   </Target>
   <Import Project="..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY $(SolutionDir)\UIOMatic\App_Plugins\UIOMatic\*.* $(ProjectDir)\App_Plugins\UIOMatic\ /S /Y</PostBuildEvent>
+    <PostBuildEvent>XCOPY $(ProjectDir)\..\UIOMatic\App_Plugins\UIOMatic\*.* $(ProjectDir)\App_Plugins\UIOMatic\ /S /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
