@@ -25,10 +25,10 @@
 
 	<!-- NUGET ONLY PROPERTIES -->
 	<PropertyGroup>
-		<NugetPackageName>UI-O-Matic</NugetPackageName>
-		<PackageId>Nibble.Umbraco.UIOMatic</PackageId>
-		<Copyright>Tim Geyssens</Copyright>
-		<Owners>Tim Geyssens</Owners>
+		<NugetPackageName>UI-O-Matic2</NugetPackageName>
+		<PackageId>Nibble.Umbraco.UIOMatic2</PackageId>
+		<Copyright>Benny Lam</Copyright>
+		<Owners>Tim Geyssens,Benny Lam</Owners>
 		<Summary>Auto generate an integrated crud UI in Umbraco for a db table based on a petapoco poco</Summary>
 		<IconUrl>https://raw.githubusercontent.com/TimGeyssens/UIOMatic/master/logo.png</IconUrl>
 		<Tags>umbraco</Tags>
