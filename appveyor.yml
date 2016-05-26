@@ -1,5 +1,5 @@
 # version format
-version: 1.6.0.{build}
+version: 2.0.0.{build}
 
 # Do not build on tags
 skip_tags: true
@@ -16,5 +16,5 @@ deploy:
   provider: NuGet
   server:
   api_key:
-    secure: cRKDqHqagUzMgXLZ971fBXwpacf44O7jsIk7hfeLNo75kShTMknWjQfWLGxgKIPt
+    secure: LMGP8EWGJSisyUMJkBHPK65kEaSGr1hgsurS4vp1hhEAMYazvL+ioLSZ2Qk/0xHZ
   artifact: /.*\.nupkg/
